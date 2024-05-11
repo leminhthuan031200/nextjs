@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import nextNav from 'next/navigation';
+import { useSelectedLayoutSegment as SelectedLayout } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 import clsx from 'clsx';
@@ -40,9 +40,7 @@ export default function NavLink() {
 
     const isActive = (href: string, text: string): string => {
         title = text;
-        return nextNav.useSelectedLayoutSegment() === href
-            ? 'text-blue-700'
-            : '';
+        return SelectedLayout() === href ? 'text-blue-700' : '';
     };
 
     const menu = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
