@@ -6,8 +6,10 @@ export default function Layout({
 }: Readonly<{ children: React.ReactNode }>) {
     return (
         <>
-            <NavLink />
-            <div className="flex">{children}</div>
+            <div className="block">
+                <NavLink />
+                {children}
+            </div>
         </>
     );
 }
