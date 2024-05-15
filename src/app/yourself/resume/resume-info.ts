@@ -1,3 +1,6 @@
+import fs from 'fs';
+import path from 'path';
+
 export interface WorkExperience {
     workTimeFrom: string;
     workTimeTo: string;
@@ -45,7 +48,7 @@ export const education: Array<Education> = [
         universityName: 'UNIVERSITY NAME',
         universityLocation: 'University Location',
         description:
-            "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I'm a great place for you to tell a story and let your users know a little more about you.",
+            "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. \n I'm a great place for you to tell a story and let your users know a little more about you.",
     },
 ];
 
@@ -61,3 +64,19 @@ export const languages: Array<string> = [
     'French (proficient)',
     'Spanish (proficient)',
 ];
+
+export const basePath: string = 'public';
+
+export const filePath: string = 'files';
+
+export const fileName: string = 'cv.pdf';
+
+export function checkFileCV(): boolean {
+    const pathCV = path.join(process.cwd(), basePath, filePath, fileName);
+
+    if (!fs.existsSync(pathCV)) {
+        return false;
+    }
+
+    return true;
+}
